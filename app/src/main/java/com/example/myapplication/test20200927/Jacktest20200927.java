@@ -1,7 +1,13 @@
 package com.example.myapplication.test20200927;
 
+import android.util.ArraySet;
+
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Random;
+import java.util.Set;
 
 public class Jacktest20200927 {
     public static void main(String[] args){
@@ -39,25 +45,80 @@ public class Jacktest20200927 {
         BadmintonRacket4.setCode("F277PAA998");
 
         List<BadmintonRacket> badmintonRackets=new ArrayList<>();
+        badmintonRackets.add(BadmintonRacket1);
+        badmintonRackets.add(BadmintonRacket2);
+        badmintonRackets.add(BadmintonRacket3);
+        badmintonRackets.add(BadmintonRacket4);
+
+        List<Integer> priceList=new ArrayList<>();
+        List<Integer> cheapPriceList=new ArrayList<>();
+        List<Double> heaviestList =new ArrayList<>();
+
+        //第一題
+            for (BadmintonRacket badmintonRacket:badmintonRackets){
+                int price2=badmintonRacket.getPrice();
+                cheapPriceList.add(price2);
+            }
+            int cheapper=Collections.min(cheapPriceList);
+
+            for (BadmintonRacket badmintonRacket:badmintonRackets){
+                int price=badmintonRacket.getPrice();
+                String number=badmintonRacket.getNumber();
+    //            cheapPriceList.add(price);
+    //            int cheapper=Collections.min(cheapPriceList);
+                if (price==cheapper){
+                    System.out.println("第一題答案是："+number);
+                }
+            }
 
 
-
-
+        //第二題
+            for (BadmintonRacket badmintonRacket:badmintonRackets){
+                double weight =badmintonRacket.getWeight();
+                String number=badmintonRacket.getNumber();
+                heaviestList.add(weight);
+                double heaviest=Collections.max(heaviestList);
+                if (weight==heaviest){
+                    System.out.println("第二題答案是："+number);
+                }
+            }
 
         //第三題
+            //把相同值去掉的語法
+            Set<String> brandList=new HashSet<>();
+            for (BadmintonRacket badmintonRacket:badmintonRackets){
+                String brand=badmintonRacket.getBrand();
+                brandList.add(brand);
+            }
+            int brandSize=brandList.size();
+            System.out.println("第三題答案是："+brandSize+"種");
 
 
         //第四題
             //第一種解法
             if (BadmintonRacket3.getPrice()<BadmintonRacket4.getPrice()){
-                System.out.println("第四題答案:"+BadmintonRacket3.getNumber());
+                System.out.println(BadmintonRacket3.getNumber());
             }else {
-                System.out.println("第四題答案:"+BadmintonRacket4.getNumber());
+                System.out.println(BadmintonRacket4.getNumber());
             }
+
             //第二種解法
+            for (BadmintonRacket badmintonRacket:badmintonRackets){
+                    String feet = "富利特";
+                    int price=badmintonRacket.getPrice();
+                    String brand = badmintonRacket.getBrand();
+                    if (brand.equals(feet)) {
+                        priceList.add(price);
+                        int cheapPrice = Collections.min(priceList);
+                        if (price == cheapPrice) {
+                            System.out.println("第四題答案:" + badmintonRacket.getNumber());
+                        }
+                    }
+            }
 
 
         //第五題
+          //第一種解法
             if (BadmintonRacket1.getCode().contains("F277")){
                 System.out.println(BadmintonRacket1.getNumber());
             }
@@ -70,28 +131,103 @@ public class Jacktest20200927 {
             if (BadmintonRacket4.getCode().contains("F277")){
             System.out.println(BadmintonRacket4.getNumber());
             }
+            //第二種解法
+            for (BadmintonRacket badmintonRacketCode:badmintonRackets){
+                if (badmintonRacketCode.getCode().contains("F277")){
+                    System.out.println("第五題答案是:"+badmintonRacketCode.getNumber());
+                }
+            }
          //第六題
+            //第一種解法
             if (BadmintonRacket1.getCode().startsWith("Y2782C")){
                 System.out.println("是");
             }else {
                 System.out.println("不是");
             }
-         //第七題
-        if (BadmintonRacket1.getCode().endsWith("003")){
-            System.out.println(BadmintonRacket1.getCode());
-        }
-        if (BadmintonRacket2.getCode().endsWith("003")) {
-            System.out.println(BadmintonRacket2.getCode());
-        }
-        if (BadmintonRacket3.getCode().endsWith("003")){
-            System.out.println(BadmintonRacket3.getCode());
-        }
-        if (BadmintonRacket4.getCode().endsWith("003")){
-            System.out.println(BadmintonRacket4.getCode());
-        }
+            //第二種解法
 
-//            boolean answer1=BadmintonRacket1.getCode().contains("F277");
-//            System.out.println(answer1);
+            for (BadmintonRacket codeStart:badmintonRackets) {
+                String code=codeStart.getCode();
+                String number=codeStart.getNumber();
+                String brand=codeStart.getBrand();
+                if (brand.equals("尤尼克斯")){
+                    if (code.startsWith("Y2782C")){
+                        System.out.println("第六題答案是："+number+"是正版");
+                    }else{
+                        System.out.println("第六題答案是：都不是");
+                    }
+                }
+            }
+
+            //第七題
+                //第一種解法
+                if (BadmintonRacket1.getCode().endsWith("003")){
+                    System.out.println(BadmintonRacket1.getCode());
+                }
+                if (BadmintonRacket2.getCode().endsWith("003")) {
+                    System.out.println(BadmintonRacket2.getCode());
+                }
+                if (BadmintonRacket3.getCode().endsWith("003")){
+                    System.out.println(BadmintonRacket3.getCode());
+                }
+                if (BadmintonRacket4.getCode().endsWith("003")){
+                    System.out.println(BadmintonRacket4.getCode());
+                }
+                //第二種解法
+                for (BadmintonRacket codeEnd:badmintonRackets){
+                    String code=codeEnd.getCode();
+                    if (code.endsWith("003")){
+                        System.out.println("第七題答案是："+code);
+                    }
+                }
+
+            //第八題
+                int sum=BadmintonRacket3.getPrice()+BadmintonRacket4.getPrice();
+                int budget=6500;
+                if (budget>sum){
+                    System.out.println("第八題答案是:夠");
+                }else {
+                    System.out.println("第八題答案是:不夠");
+                }
+                int average=sum/2;
+                System.out.println("第八題答案是:"+average);
+
+            //第九題
+                int price1=BadmintonRacket1.getPrice();
+                int price2=BadmintonRacket2.getPrice();
+                if (price1 > price2) {
+                    System.out.println("第九題答案是："+BadmintonRacket1.getNumber()+"比較貴");
+                }else {
+                    System.out.println("第九題答案是："+BadmintonRacket2.getNumber()+"比較貴");
+                }
+
+            //第十題
+                Double weight=BadmintonRacket4.getWeight();
+                long number=Math.round(weight);
+                System.out.println("第十題答案是："+number);
+
+            //第十一題
+                int figure=new Random().nextInt(10);
+                System.out.println("第十一題答案是："+figure);
+
+
+             // i am jacks
+            String sentence=" i am jacks ";
+                //（1）
+                String toBig=sentence.toUpperCase();
+                System.out.println("(1)"+toBig);
+                //（2）
+                String tosmall=sentence.toLowerCase();
+                System.out.println("(2)"+tosmall);
+                //(3)
+                String clearVain=sentence.trim();
+                System.out.println("(3)"+clearVain);
+                //(4)
+                String clearAll=sentence.replaceAll(" ","");
+                System.out.println("(4)"+clearAll);
+                //(5)
+                String changeName=sentence.replace("jacks","Daniels");
+                System.out.println("(5)"+changeName);
 
     }
     static class BadmintonRacket{
@@ -141,9 +277,6 @@ public class Jacktest20200927 {
             this.code = code;
         }
 
-        public void cheap(){
-
-        }
     }
 
 
