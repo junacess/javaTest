@@ -5,10 +5,10 @@ import java.util.Collections;
 import java.util.List;
 
 public class TestWork {
-    public static void main(String[] Account){
+    public static void main(String[] Account) {
 
         //小新
-        Account account1=new Account();
+        Account account1 = new Account();
         account1.setNumber(1);
         account1.setName("小新");
         account1.setAccountNumber("X5458XA");
@@ -17,7 +17,7 @@ public class TestWork {
         account1.setItem("出國用");
 
         //美芽
-        Account account2=new Account();
+        Account account2 = new Account();
         account2.setNumber(2);
         account2.setName("美芽");
         account2.setAccountNumber("HBA3S586");
@@ -26,7 +26,7 @@ public class TestWork {
         account2.setItem("家庭用");
 
         //廣志
-        Account account3=new Account();
+        Account account3 = new Account();
         account3.setNumber(3);
         account3.setName("廣志");
         account3.setAccountNumber("GLK48777");
@@ -36,125 +36,126 @@ public class TestWork {
 
 
         //把大家都放入陣列
-        List<Account> account=new ArrayList<>();
+        List<Account> account = new ArrayList<>();
         account.add(account1);
         account.add(account2);
         account.add(account3);
 
-        List<Integer> richMoney=new ArrayList<>();
+        List<Integer> richMoney = new ArrayList<>();
 
 
         //第一題
-        String changePassword="cTV76299";
-        String password=account1.getPassword();
-        password=changePassword;
-        System.out.println("(1)"+password);
+        String changePassword = "cTV76299";
+        String password = account1.getPassword();
+        password = changePassword;
+        System.out.println("(1)" + password);
 
         //第二題
-        int wifeMoney=account2.getMoney();
-        int husbandMoney=account3.getMoney();
-        int provideMoney=3500;
-        wifeMoney-=provideMoney;
-        husbandMoney+=provideMoney;
-        System.out.println("(2)廣志有"+husbandMoney+"美芽剩"+wifeMoney);
+        int wifeMoney = account2.getMoney();
+        int husbandMoney = account3.getMoney();
+        int provideMoney = 3500;
+        wifeMoney -= provideMoney;
+        husbandMoney += provideMoney;
+        System.out.println("(2)廣志有" + husbandMoney + "美芽剩" + wifeMoney);
 
         //第三題
-        int smallNew=account1.getMoney();
-        int cookies=150;
-        int day=0;
-        for (int i=0;smallNew>cookies;i++){
-            day+=1;
-            smallNew-=cookies;
+        int smallNew = account1.getMoney();
+        int cookies = 150;
+        int day = 0;
+        for (int i = 0; smallNew > cookies; i++) {
+            day += 1;
+            smallNew -= cookies;
         }
-            System.out.println("(3)"+day);
+        System.out.println("(3)" + day);
 
         //第四題
-        String password2=account2.getPassword();
-        String newPassword=password2.toUpperCase();
-        System.out.println("(4)"+newPassword);
+        String password2 = account2.getPassword();
+        String newPassword = password2.toUpperCase();
+        System.out.println("(4)" + newPassword);
 
 
         //第五題
-            //先把大家的錢取出來丟進陣列
-        for (Account richest:account){
-            int money=richest.getMoney();
+        //先把大家的錢取出來丟進陣列
+        for (Account richest : account) {
+            int money = richest.getMoney();
             richMoney.add(money);
         }
 
         //取最大值
-        int richest= Collections.max(richMoney);
+        int richest = Collections.max(richMoney);
 
         //找出誰最有錢
-        for (Account person:account){
-            int money=person.getMoney();
-            String richestPerson=person.getName();
-            if (money==richest){
-                System.out.println("(5)"+richestPerson);
+        for (Account person : account) {
+            int money = person.getMoney();
+            String richestPerson = person.getName();
+            if (money == richest) {
+                System.out.println("(5)" + richestPerson);
             }
         }
 
         //第六題
-            int xin=account1.getMoney();
-            double rate=0.02;
-            double xin2=xin;
-            for (int i=1;i<=10;i++){
-                double rate2=xin*rate;
-                xin+=rate2;
-            }
-            System.out.println("(6)"+xin);
+        int xin = account1.getMoney();
+        double rate = 0.02;
+        double xin2 = xin;
+        for (int i = 1; i <= 10; i++) {
+            double rate2 = xin * rate;
+            xin += rate2;
+        }
+        System.out.println("(6)" + xin);
 
-         //第七題
-            for (Account five:account){
-                String haveFive=five.getAccountNumber();
-                String name=five.getName();
-                if (haveFive.contains("5")){
-                    System.out.println("(7)"+name);
-                }
+        //第七題
+        for (Account five : account) {
+            String haveFive = five.getAccountNumber();
+            String name = five.getName();
+            if (haveFive.contains("5")) {
+                System.out.println("(7)" + name);
             }
+        }
 
-         //第八題
-            int melYa=account2.getMoney();
-            int zhi=account3.getMoney();
-            int tatle=melYa+zhi;
-            if (tatle>=100000){
-                System.out.println("(8)夠");
-            }else {
-                System.out.println("(8)不夠");
-            }
+        //第八題
+        int melYa = account2.getMoney();
+        int zhi = account3.getMoney();
+        int tatle = melYa + zhi;
+        if (tatle >= 100000) {
+            System.out.println("(8)夠");
+        } else {
+            System.out.println("(8)不夠");
+        }
 
         //第九題
-            int dayly=1;
-            int deposit=250;
-            for (int i=1;deposit<50000;i++){
-                dayly+=1;
-                deposit+=250;
-            }
-            System.out.println("(9)"+dayly);
+        int dayly = 1;
+        int deposit = 250;
+        for (int i = 1; deposit < 50000; i++) {
+            dayly += 1;
+            deposit += 250;
+        }
+        System.out.println("(9)" + dayly);
 
         //第十題
-            String zhiNumber=account3.getAccountNumber();
-            String seven="7";
+        String zhiNumber = account3.getAccountNumber();
+        String seven = "7";
 
-            int count=0;
-            int index=0;
+        int count = 0;
+        int index = 0;
 
-            while ((index=zhiNumber.indexOf(seven))!=-1){
-                index=seven.length()+index;
-                count++;
-                zhiNumber=zhiNumber.substring(index,zhiNumber.length());
-            }
+        while ((index = zhiNumber.indexOf(seven)) != -1) {
+            index = seven.length() + index;
+            count++;
+            zhiNumber = zhiNumber.substring(index, zhiNumber.length());
+        }
 
-            System.out.println("(10)"+count);
+        System.out.println("(10)" + count);
 
-         //第十一題
-            for (Account item:account){
-                String allItem=item.getItem();
-                System.out.println("(11)"+allItem);
-            }
+        //第十一題
+        for (Account item : account) {
+            String allItem = item.getItem();
+            System.out.println("(11)" + allItem);
+        }
 
 
     }
-    static class Account{
+
+    static class Account {
         int number;
         String name;
         String accountNumber;
