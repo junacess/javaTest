@@ -59,6 +59,7 @@
         app:layout_constraintTop_toBottomOf="@id/button_sent">
 
         <TextView
+            android:id="@+id/total_assents"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="總資產："
@@ -85,6 +86,7 @@
         app:layout_constraintTop_toBottomOf="@id/linear" />
 
     <ImageView
+        android:id="@+id/greenPerson"
         android:layout_width="60dp"
         android:layout_height="60dp"
         android:src="@drawable/unnamed"
