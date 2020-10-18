@@ -29,6 +29,7 @@ public class Test20200925 {
         charList.add("Hello Word");
         charList.add("command");
         charList.add("GitHub");
+        charList.remove("GitHub");
         for (String foreach:charList){
             System.out.println(foreach);
         }
