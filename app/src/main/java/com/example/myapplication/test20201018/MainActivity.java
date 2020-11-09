@@ -16,18 +16,21 @@ import androidx.core.content.ContextCompat;
 
 import com.example.myapplication.R;
 
-public class MainActivity extends BaseActivity {
+public class MainActivity extends BaseActivity  {
 
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_testmain);
+        //換背景色
         ConstraintLayout background=findViewById(R.id.main);
         background.setBackgroundColor(ContextCompat.getColor(this,R.color.black));
+        //呼叫文字
         TextView home = findViewById(R.id.home);
         home.setText("house");
         home.setTextColor(ContextCompat.getColor(this, R.color.deepGreen));
+        //點擊方法
         home.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
